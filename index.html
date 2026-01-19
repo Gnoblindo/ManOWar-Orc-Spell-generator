@@ -2,6 +2,62 @@
 <html lang="en">
     <head><title>Da</title><meta charset="UTF-8"></head>
     <body>
-        
+        <input type="number" id="da">Here enter number of cards you should draw.<br>
+        <button onclick="processing()">Roll</button><p id="yus"></p>
+    <p id="yus"></p>
+
+<script>
+const names = {
+  1: "Power",
+  2: "Power",
+  3: "Power",
+  4: "Power",
+  5: "Power",
+  6: "Power",
+  7: "Power",
+  8: "Power",
+  9: "Power",
+  10: "Power",
+  11: "Power",
+  12: "Power",
+  13: "Power",
+  14: "Power",
+  15: "Power",
+  16: "Power",
+  17: "Mork Wants Ya",
+  18: "Mork Wants Ya",
+  19: "Hand Of Gork",
+  20: "Hand Of Gork",
+  21: "Gaze Of Mork",
+  22: "Gaze Of Mork",
+  23: "Fists of Gork",
+  24: "Fists of Gork",
+  25: "Mork Save Uz",
+  26: "Mork Save Uz",
+  27: "Ere We Go!",
+  28: "Ere We Go!",
+  29: "Ded 'Ard",
+  30: "Get Da Skumbo",
+  31: "Gerroutavit",
+  32: "Over Da Side",
+  33: "'Eadbang!",
+  34: "Waaagh!",
+  35: "Da Krunch",
+  36: "'Eadbutt"
+};
+
+function processing(){
+  const Spells = document.getElementById("da").value;
+
+  const numbers = new Set();
+
+  while (numbers.size < Spells) {
+    numbers.add(Math.floor(Math.random() * 36) + 1);
+  }
+    const sorted = [...numbers].sort((a, b) => a - b);
+  const result = sorted.map(num => `${num} - ${names[num]}`).join("<br>");
+  document.getElementById("yus").innerHTML = result;
+}
+</script>
     </body>
 </html>
